@@ -1,0 +1,14 @@
+*.log
+*.prof
+*.pyc
+*.sqlite3
+*.sqlite3-journal
+*.mo
+
+.DS_Store
+Thumbs.db
+
+/sassroot/*
+/.vscode/*
+
+/node_modules/*
