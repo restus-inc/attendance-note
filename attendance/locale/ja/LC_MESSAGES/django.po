@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-02 10:46+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\attendance\models.py:25
+msgid "attendance"
+msgstr "勤怠"
+
+#: .\attendance\models.py:26
+msgid "attendances"
+msgstr "勤怠"
+
+#: .\attendance\templates\attendance\_base.html:7
+msgid "app_title"
+msgstr "勤怠管理"
+
+#: .\attendance\templates\attendance\index.html:8
+msgid "username:"
+msgstr "ユーザ："
+
+#: .\attendance\templates\attendance\index.html:16
+msgid "target_month:"
+msgstr "年月："
+
+#: .\attendance\templates\attendance\index.html:19
+msgid "change"
+msgstr "表示"
+
+#: .\attendance\templates\attendance\update.html:12
+msgid "date"
+msgstr "日付"
+
+#: .\attendance\templates\attendance\update.html:13
+msgid "start time"
+msgstr "開始時間"
+
+#: .\attendance\templates\attendance\update.html:14
+msgid "end time"
+msgstr "終了時間"
+
+#: .\attendance\templates\attendance\update.html:15
+msgid "break time"
+msgstr "休憩時間"
+
+#: .\attendance\templates\attendance\update.html:16
+msgid "operation time"
+msgstr "稼働時間"
+
+#: .\attendance\templates\attendance\update.html:46
+msgid "total time"
+msgstr "合計"
+
+#: .\attendance\templates\attendance\update.html:54
+msgid "save"
+msgstr "保存"
+
+#: .\attendance\views.py:29
+msgid "Time format is invalid."
+msgstr "時間の形式が不正です。"
+
+#: .\attendance\views.py:32
+msgid "Saved."
+msgstr "保存しました。"

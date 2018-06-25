@@ -31,12 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'attendance.apps.Config',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -47,7 +49,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TEMPLATE_CONTEXT': True,
+}
 
 ROOT_URLCONF = 'attendancenote.urls'
 
@@ -103,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja-jp'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -118,3 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LANGUAGES = [
+    ('ja', '&#26085;&#26412;&#35486;'),
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'attendance', 'locale'),
+]
+
+INTERNAL_IPS = ('127.0.0.1',)

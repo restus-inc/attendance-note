@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load i18n staticfiles %}
+<html lang="ja">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <title>{% trans "app_title" %}</title>
+    {# Load CSS and JavaScript #}
+    <link href="{% static 'attendance/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
