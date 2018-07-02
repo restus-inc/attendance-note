@@ -1,0 +1,52 @@
+
+@media not print{
+    .printform{
+        display: none;
+    }
+    .div_body{
+        height: 500px;
+        width: 425px;
+        overflow: auto;
+    }    
+}
+@media print{
+    .indexform{
+        display: none;
+    }
+    .printform{
+        border-bottom: solid 1px;
+    }
+    .div_body{
+        width: 425px;
+    }
+    .div_foot_btn{
+        display: none;
+    }
+}
+.div_head{
+    width: 425px;
+    overflow: auto;
+}
+.div_foot{
+    width: 425px;
+    overflow: auto;
+}
+.indexform{
+    background-color: rgb(198, 245, 231);
+}
+.table_head_tr{
+    background-color: blanchedalmond;
+}
+.t_item0{
+    background-color: rgb(252, 210, 210);
+}
+.t_item6{
+    background-color: rgb(180, 220, 255);
+}
+.table_foot_tr{
+    background-color: blanchedalmond;
+}
+label[id="messageLabel"]{
+    color: red;
+    background: #ffffdd
+}
