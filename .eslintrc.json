@@ -1,0 +1,28 @@
+{
+    "parserOptions": {
+        "sourceType": "script"
+    },
+    "extends": "airbnb-base",
+    "globals": {
+        "window": false,
+        "document": false,
+        "XMLHttpRequest": false,
+        "mdc": false,
+        "fca1": false,
+        "gettext": false
+    },
+    "rules": {
+        "func-names": [
+            "warn", "as-needed"
+        ],
+        "function-paren-newline": [
+            "error", "consistent"
+        ],
+        "no-restricted-syntax": [
+            "off", { "selector": "ForOfStatement" }
+        ],
+        "no-unused-vars": [
+            "error", { "args": "none" }
+        ]
+    }
+}

@@ -1,52 +1,80 @@
 
-@media not print{
-    .printform{
-        display: none;
-    }
-    .div_body{
-        height: 500px;
-        width: 425px;
-        overflow: auto;
-    }    
-}
-@media print{
-    .indexform{
-        display: none;
-    }
-    .printform{
-        border-bottom: solid 1px;
-    }
-    .div_body{
-        width: 425px;
-    }
-    .div_foot_btn{
-        display: none;
-    }
-}
-.div_head{
+@media not print {
+  .printform {
+    display: none;
+  }
+
+  .div_body {
     width: 425px;
+    height: 500px;
     overflow: auto;
+  }
 }
-.div_foot{
+
+@media print {
+  .indexform {
+    display: none;
+  }
+
+  .printform {
+    border-bottom: solid 1px;
+  }
+
+  .div_body {
     width: 425px;
-    overflow: auto;
+  }
+
+  .div_foot_btn {
+    display: none;
+  }
 }
-.indexform{
-    background-color: rgb(198, 245, 231);
+
+.div_head {
+  width: 425px;
+  overflow: auto;
 }
-.table_head_tr{
-    background-color: blanchedalmond;
+
+.div_foot {
+  width: 425px;
+  overflow: auto;
 }
-.t_item0{
-    background-color: rgb(252, 210, 210);
+
+.indexform {
+  background-color: rgb(198, 245, 231);
 }
-.t_item6{
-    background-color: rgb(180, 220, 255);
+
+.table_head_tr {
+  background-color: blanchedalmond;
 }
-.table_foot_tr{
-    background-color: blanchedalmond;
+
+.t_item0 {
+  background-color: rgb(252, 210, 210);
 }
-label[id="messageLabel"]{
-    color: red;
-    background: #ffffdd
+
+.t_item6 {
+  background-color: rgb(180, 220, 255);
+}
+
+.table_foot_tr {
+  background-color: blanchedalmond;
+}
+
+.message {
+  background-color: rgb(255, 255, 221);
+  color: red;
+}
+
+.tab_detail {
+  border: solid 1px black;
+  border-collapse: collapse;
+}
+
+.tab_detail tr th {
+  padding: 2px;
+  border: solid 1px black;
+}
+
+.tab_detail tr td {
+  padding: 2px;
+  border: solid 1px black;
 }

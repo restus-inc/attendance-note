@@ -3,11 +3,11 @@
 
 {% block attendance %}
 <script src="{% static 'attendance/update.js' %}"></script>
-<label id="messageLabel" >{{ wk_message }}</label>
-<form action="" method="post">
+<label class="message" id="messageLabel" >{{ wk_message }}</label>
+<form action="." method="post">
     {% csrf_token %}
     <div class="div_head" >
-    <table border="1" cellspacing="0" cellpadding="2" >
+    <table class="tab_detail" >
         <tr class="table_head_tr">
             <th style="width: 75px;">{% trans "date" %}</th>
             <th style="width: 75px;">{% trans "start time" %}</th>
@@ -18,39 +18,39 @@
     </table>
     </div>
     <div class="div_body" >
-        <table border="1" cellspacing="0" cellpadding="2" >
+        <table class="tab_detail" >
             <tbody>
             {% for item in items %}
                 <tr class="t_item{{ item.date|date:"w" }}">
-                    <td style="width: 75px; text-align: center">
-                        <label name="date{{ item.id }}" id="date{{ item.id }}">{{ item.date|date:"m/d" }}</label></td>
+                    <td style="width: 75px; text-align: center;">
+                        <label id="date{{ item.id }}">{{ item.date|date:"m/d" }}</label></td>
                     <td style="width: 75px;">
                         <input class="t_item{{ item.date|date:"w" }}" type="time" name="stt_time{{ item.id }}" id="stt_time{{ item.id }}"
-                            value="{{ item.stt_time|time:"H:i" }}" required onchange="timeChange(this)"/></td>
+                            value="{{ item.stt_time|time:"H:i" }}" required/></td>
                     <td style="width: 75px;">
                         <input class="t_item{{ item.date|date:"w" }}" type="time" name="end_time{{ item.id }}" id="end_time{{ item.id }}" 
-                            value="{{ item.end_time|time:"H:i" }}" required onchange="timeChange(this)"/></td>
+                            value="{{ item.end_time|time:"H:i" }}" required/></td>
                     <td style="width: 75px;">
                         <input class="t_item{{ item.date|date:"w" }}" type="time" name="break_time{{ item.id }}" id="break_time{{ item.id }}" 
-                            value="{{ item.break_time|time:"H:i" }}" required onchange="timeChange(this)"/></td>
-                    <td style="width: 75px;text-align: right;">
-                        <label name="op_time{{ item.id }}" id="op_time{{ item.id }}" >{{ item.str_operating_time }}</label></td>
+                            value="{{ item.break_time|time:"H:i" }}" required/></td>
+                    <td style="width: 75px; text-align: right;">
+                        <label id="op_time{{ item.id }}" >{{ item.str_operating_time }}</label></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
     <div class="div_foot">
-        <table border="1" cellspacing="0" cellpadding="2" >
+        <table class="tab_detail" >
             <tr class="table_foot_tr">
-                <td style="width: 318px;text-align: left;">{% trans "total time" %}</td>
-                <td style="width: 75px; text-align: right">
-                    <lavel name="total_time" id="total_time">{{ total_time }}</lavel></td>
+                <td style="width: 315px; text-align: left;">{% trans "total time" %}</td>
+                <td style="width: 75px; text-align: right;">
+                    <label id="total_time">{{ total_time }}</label></td>
             </tr>
         </table>
     </div>
     <div class="div_foot_btn" >
-        <div style="height: 5px">&nbsp;</div>
+        <div style="height: 5px;">&nbsp;</div>
         <button class="btn_save" type="submit" name="saveButton" value="save">{% trans "save" %}</button>
     </div>
 </form>
