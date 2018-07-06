@@ -7,15 +7,16 @@
 <form action="." method="post">
     {% csrf_token %}
     <div class="div_head" >
-    <table class="tab_detail" >
-        <tr class="table_head_tr">
-            <th style="width: 75px;">{% trans "date" %}</th>
-            <th style="width: 75px;">{% trans "start time" %}</th>
-            <th style="width: 75px;">{% trans "end time" %}</th>
-            <th style="width: 75px;">{% trans "break time" %}</th>
-            <th style="width: 75px;">{% trans "operation time" %}</th>
-        </tr>
-    </table>
+        <table class="tab_detail" >
+            <tr class="table_head_tr">
+                <th style="width: 75px;">{% trans "date" %}</th>
+                <th style="width: 75px;">{% trans "start time" %}</th>
+                <th style="width: 75px;">{% trans "end time" %}</th>
+                <th style="width: 75px;">{% trans "break time" %}</th>
+                <th style="width: 75px;">{% trans "operation time" %}</th>
+                <th class="td_process_detail"></th>
+            </tr>
+        </table>
     </div>
     <div class="div_body" >
         <table class="tab_detail" >
@@ -35,6 +36,9 @@
                             value="{{ item.break_time|time:"H:i" }}" required/></td>
                     <td style="width: 75px; text-align: right;">
                         <label id="op_time{{ item.id }}" >{{ item.str_operating_time }}</label></td>
+                    <td class="td_process_detail">
+                        <button class="dtil_btn_unmatch" type="button" name="registButton{{ item.id }}" id="registButton{{ item.id }}">{% trans "person hours" %}</button>
+                        <div class="dtil_process_lbl" ><label id="personhoursLabel{{ item.id }}" ></label></div></td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -43,9 +47,10 @@
     <div class="div_foot">
         <table class="tab_detail" >
             <tr class="table_foot_tr">
-                <td style="width: 315px; text-align: left;">{% trans "total time" %}</td>
+                <td style="width: 305px; text-align: left; padding-left: 12px;">{% trans "total time" %}</td>
                 <td style="width: 75px; text-align: right;">
                     <label id="total_time">{{ total_time }}</label></td>
+                <td class="td_process_detail"></td>
             </tr>
         </table>
     </div>
@@ -53,6 +58,70 @@
         <div style="height: 5px;">&nbsp;</div>
         <button class="btn_save" type="submit" name="saveButton" value="save">{% trans "save" %}</button>
     </div>
+    <div class="wkObj" style="display: none;">
+        <table class="wkTable">
+            {% for dtil in dtils %}
+            <tr class="dialog_table_tr" data-name="dt_tr_{{dtil.attendance_id }}">
+                <td style="width: 75%;">
+                    <input class="proj_id"  type="hidden" name="proj_id_{{ dtil.attendance_id }}" value="{{ dtil.id }}"/>
+                    <select class="proj_code" name="proj_code_{{ dtil.attendance_id }}">
+                        <option value="">----</option>
+                        {% for proj in projects %}
+                            <option value="{{proj.id}}" {% if proj.id == dtil.project_id %} selected {% endif %}>{{ proj.name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <input class="proj_hour" type="Number" name="proj_hour_{{ dtil.attendance_id }}" value="{{ dtil.hour }}" step="0.01" min="0"/>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
 </form>
+<dialog class="dialog" id="custom_dialog">
+    <div class="dialog_head" id="custom_dialog_head" >
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 50%;">{% trans "person hours regist" %}</td>
+                <td style="width: 50%; text-align: right;"><label id="target_Date"></label> (<label id="operation_time"></label>)</td>
+            </tr>
+        </table>
+    </div>
+    <div class="dialog_msg" id="custom_dialog_msg" >
+        <label class="message" id="dialog_msg_label"></label>
+    </div>
+    <div class="dialog_body" id="custom_dialog_body" >
+        <table class="dialog_table" name="custom_dialog_table">
+            <tr class="dialog_table_tr" data-name="dt_tr">
+                <td style="width: 75%;">
+                    <input class="proj_id" type="hidden" />
+                    <select class="proj_code">
+                        <option value="">----</option>
+                        {% for proj in projects %}
+                            <option value="{{proj.id}}">{{ proj.name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <input class="proj_hour" type="Number" step="0.01"  min="0"/>
+                </td>
+            </tr>
+            <tfoot class="dialog_table_foot">
+                <tr>
+                    <td style="text-align: right; padding-right: 15px;">{% trans "total time" %}</td>
+                    <td><input class="proj_hour" name="TotalHour" type="Number" readonly min="0" /></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="dialog_foot" id="custom_dialog_foot">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 50%;"><input type="button" class='custom_dialog_button' id="cd_add_button" value="{% trans "project add" %}"/></td>
+                <td style="width: 50%;"><input type="button" class='custom_dialog_button' id="cd_close_button" value="{% trans "OK" %}"/></td>
+            </tr>
+        </table>
+    </div>
+</dialog>
 {% endblock %}
-

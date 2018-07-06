@@ -95,3 +95,66 @@ class Attendance(models.Model):
             for i in range(1, cnt+1):
                 d = date(instance.year, instance.month, i)
                 Attendance.objects.create(yearmonth=instance, date=d)
+
+
+class Project(models.Model):
+    code = models.CharField(max_length=10)
+    name = models.CharField(max_length=255)
+    is_valid = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    def __str__(self):
+        return str(self.name)
+
+    @classmethod
+    def get_query_set(cls):
+        return Project.objects.filter(
+            is_valid='1').order_by('code')
+
+
+class AttendanceProcess(models.Model):
+    """Process
+    """
+    attendance = models.ForeignKey(
+        Attendance,
+        on_delete=models.CASCADE)
+    number = models.SmallIntegerField()
+    project = models.ForeignKey(Project)
+    hour = models.DecimalField(max_digits=4, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        unique_together = (('attendance', 'project'),)
+        ordering = ['attendance', 'number']
+
+    def __str__(self):
+        return str(self.number) + ':' + str(self.project)
+
+    @classmethod
+    def get_query_set(cls, yearmonth):
+        return AttendanceProcess.objects.filter(
+            attendance__yearmonth=yearmonth).order_by('attendance', 'number')
+
+    @classmethod
+    def insertUpdate(cls, attendance, id, number, pj, hour):
+        if id == '':
+            # 新規登録
+            if pj != '':
+                AttendanceProcess.objects.create(
+                    attendance=attendance,
+                    number=number,
+                    project=Project.objects.get(pk=pj),
+                    hour=hour
+                )
+        else:
+            # 更新
+            if pj != '':
+                ap = AttendanceProcess.objects.get(pk=id)
+                ap.project = Project.objects.get(pk=pj)
+                ap.hour = hour
+                ap.save()
+            # 削除
+            else:
+                AttendanceProcess.objects.filter(pk=id).delete()

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 10:46+0900\n"
+"POT-Creation-Date: 2018-07-17 15:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,62 +18,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\attendance\models.py:25
+#: .\models.py:29
 msgid "attendance"
 msgstr "勤怠"
 
-#: .\attendance\models.py:26
+#: .\models.py:30
 msgid "attendances"
 msgstr "勤怠"
 
-#: .\attendance\templates\attendance\_base.html:7
+#: .\templates\attendance\_base.html:7
 msgid "app_title"
 msgstr "勤怠管理"
 
-#: .\attendance\templates\attendance\index.html:8
+#: .\templates\attendance\index.html:8 .\templates\attendance\index.html:21
 msgid "username:"
 msgstr "ユーザ："
 
-#: .\attendance\templates\attendance\index.html:16
+#: .\templates\attendance\index.html:15 .\templates\attendance\index.html:28
 msgid "target_month:"
 msgstr "年月："
 
-#: .\attendance\templates\attendance\index.html:19
+#: .\templates\attendance\index.html:18
 msgid "change"
 msgstr "表示"
 
-#: .\attendance\templates\attendance\update.html:12
+#: .\templates\attendance\update.html:12
 msgid "date"
 msgstr "日付"
 
-#: .\attendance\templates\attendance\update.html:13
+#: .\templates\attendance\update.html:13
 msgid "start time"
 msgstr "開始時間"
 
-#: .\attendance\templates\attendance\update.html:14
+#: .\templates\attendance\update.html:14
 msgid "end time"
 msgstr "終了時間"
 
-#: .\attendance\templates\attendance\update.html:15
+#: .\templates\attendance\update.html:15
 msgid "break time"
 msgstr "休憩時間"
 
-#: .\attendance\templates\attendance\update.html:16
+#: .\templates\attendance\update.html:16
 msgid "operation time"
 msgstr "稼働時間"
 
-#: .\attendance\templates\attendance\update.html:46
+#: .\templates\attendance\update.html:40
+msgid "person hours"
+msgstr "工数"
+
+#: .\templates\attendance\update.html:50 .\templates\attendance\update.html:112
 msgid "total time"
 msgstr "合計"
 
-#: .\attendance\templates\attendance\update.html:54
+#: .\templates\attendance\update.html:59
 msgid "save"
 msgstr "保存"
 
-#: .\attendance\views.py:29
+#: .\templates\attendance\update.html:86
+msgid "person hours regist"
+msgstr "工数入力"
+
+#: .\templates\attendance\update.html:121
+msgid "project add"
+msgstr "追加"
+
+#: .\templates\attendance\update.html:122
+msgid "OK"
+msgstr "OK"
+
+#: .\views.py:50
 msgid "Time format is invalid."
 msgstr "時間の形式が不正です。"
 
-#: .\attendance\views.py:32
+#: .\views.py:53
 msgid "Saved."
 msgstr "保存しました。"

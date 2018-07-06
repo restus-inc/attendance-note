@@ -5,6 +5,7 @@
 <form action="." method="post">
     {% csrf_token %}
     <div class="indexform" >
+        <span style="vertical-align: middle;">
         <label style="width: 100px;">{% trans "username:" %}</label>
         <select class="user_item" name="userDrop" id="userDrop" required>
             <option value="">----</option>
@@ -12,11 +13,11 @@
             <option value="{{user.id}}" {% if user.id == t_user %} selected {% endif %}>{{ user.first_name }} {{ user.last_name }}</option>
             {% endfor %}
         </select>
-        &nbsp;
-        <label >{% trans "target_month:" %}</label>
-        <input class="year_item" type="number" name="yearNumber" id="yearNumber" value="{{t_year}}" max="9999" style="width: 50px;" required/>/      
-        <input class="month_item" type="number" name="monthNumber" id="monthNumber" value="{{t_month}}" max="12" style="width: 30px;" required/>
+        <label style="padding-left: 25px;">{% trans "target_month:" %}</label>
+        <input class="year_item" type="number" name="yearNumber" id="yearNumber" value="{{t_year}}" max="9999" required/>/      
+        <input class="month_item" type="number" name="monthNumber" id="monthNumber" value="{{t_month}}" max="12" required/>
         <button class="btn_entry" type="submit" name="entryButton" >{% trans "change" %}</button>
+        </span>
     </div>
     <div class="printform">
         <label style="width: 100px;">{% trans "username:" %}</label>
@@ -31,6 +32,4 @@
     </div>
 </form>
 <div style="height: 5px;"></div>
-{% block attendance %}
-{% endblock %}
 {% endblock %}

@@ -7,9 +7,12 @@
     <title>{% trans "app_title" %}</title>
     {# Load CSS and JavaScript #}
     <link href="{% static 'attendance/style.css' %}" rel="stylesheet">
+    <script defer src="{% url 'attendance:javascript-catalog' %}"></script>
 </head>
 <body>
 {% block content %}
+{% endblock %}
+{% block attendance %}
 {% endblock %}
 </body>
 </html>
