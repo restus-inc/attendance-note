@@ -1,64 +1,50 @@
 'use strict';
 
-function toSecond(hour, minute, second) {
-  if ((!hour && hour !== 0)
-  || (!minute && minute !== 0)
-  || (!second && second !== 0)
-  || hour === null
-  || minute === null
-  || second === null
-  || typeof hour === 'boolean'
-  || typeof minute === 'boolean'
-  || typeof second === 'boolean'
-  || Number.isNaN(hour)
-  || Number.isNaN(minute)
-  || Number.isNaN(second)) return '';
-
-  return (Number(hour) * 60 * 60) + (Number(minute) * 60) + Number(second);
-}
-
-function paddingZero(n) {
-  return `${(n < 10) ? '0' : ''}${n}`;
-}
-
-function toTimeFormat(fullSecond) {
-  if ((!fullSecond && fullSecond !== 0) || !String(fullSecond).match(/^[-]?[0-9][0-9]*?$/)) {
-    return '00:00';
-  }
-  let hour = Math.floor(Math.abs(fullSecond) / 3600);
-  let minute = Math.floor((Math.abs(fullSecond) % 3600) / 60);
-
-  hour = paddingZero(hour);
-  minute = paddingZero(minute);
-
-  return `${(fullSecond < 0) ? '-' : ''}${hour}:${minute}`;
-}
-
 document.addEventListener('DOMContentLoaded', (evt) => {
+  const toSecond = (hour, minute, second) => {
+    if (hour === '' || minute === '' || second === '') return '';
+
+    return (Number(hour) * 60 * 60) + (Number(minute) * 60) + Number(second);
+  };
+
+  const paddingZero = (n) => {
+    const result = `${(n < 10) ? '0' : ''}${n}`;
+    return result;
+  };
+
+  const toTimeFormat = (fullSecond) => {
+    const sec = Number(fullSecond);
+    const hour = Math.floor(Math.abs(sec) / 3600);
+    const minute = Math.floor((Math.abs(sec) % 3600) / 60);
+
+    return `${(fullSecond < 0) ? '-' : ''}${paddingZero(hour)}:${paddingZero(minute)}`;
+  };
+
   const inputTimes = document.querySelectorAll('div.div_body input[type="time"]');
-  for (let i = 0; i < inputTimes.length; i += 1) {
-    if (inputTimes[i]) {
-      const id = inputTimes[i].id.match(/\d+/g);
-      inputTimes[i].addEventListener('change', (e) => {
+
+  for (const inputTime of inputTimes) {
+    if (inputTime) {
+      const id = inputTime.id.match(/\d+/g);
+      inputTime.addEventListener('change', (e) => {
         // 開始時間
-        let times = document.getElementById(`stt_time${id}`).value.split(':');
-        const st = toSecond(times[0], times[1], 0);
+        const wkSt = document.getElementById(`stt_time${id}`).value.split(':');
+        const st = toSecond(wkSt[0], wkSt[1], 0);
 
         // 終了時間
-        times = document.getElementById(`end_time${id}`).value.split(':');
-        const ed = toSecond(times[0], times[1], 0);
+        const wkEd = document.getElementById(`end_time${id}`).value.split(':');
+        const ed = toSecond(wkEd[0], wkEd[1], 0);
 
         // 休憩時間
-        times = document.getElementById(`break_time${id}`).value.split(':');
-        const br = toSecond(times[0], times[1], 0);
+        const wkBr = document.getElementById(`break_time${id}`).value.split(':');
+        const br = toSecond(wkBr[0], wkBr[1], 0);
 
         // 稼働時間
-        times = document.getElementById(`op_time${id}`).innerHTML.split(':');
-        const oldOp = toSecond(times[0], times[1], 0);
+        const wkOldOp = document.getElementById(`op_time${id}`).innerHTML.split(':');
+        const oldOp = toSecond(wkOldOp[0], wkOldOp[1], 0);
 
         // 合計時間
-        times = document.getElementById('total_time').innerHTML.split(':');
-        const total = toSecond(times[0], times[1], 0);
+        const wkTotal = document.getElementById('total_time').innerHTML.split(':');
+        const total = toSecond(wkTotal[0], wkTotal[1], 0);
 
         let newOp = 0;
         if (st === '' || ed === '' || br === '') {

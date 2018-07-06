@@ -34,7 +34,7 @@ class Attendance(models.Model):
     """Attendance
     """
 
-    month = models.ForeignKey(
+    yearmonth = models.ForeignKey(
         YearMonth,
         on_delete=models.CASCADE)
     date = models.DateField()
@@ -45,8 +45,8 @@ class Attendance(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
-        unique_together = (('month', 'date'),)
-        ordering = ['month', 'date']
+        unique_together = (('yearmonth', 'date'),)
+        ordering = ['yearmonth', 'date']
 
     def __str__(self):
         return str(self.date)
@@ -78,8 +78,8 @@ class Attendance(models.Model):
         return (e-s-t)
 
     @classmethod
-    def get_query_set_Attendances(cls, month):
-        return Attendance.objects.filter(month=month).order_by('date')
+    def get_query_set_Attendances(cls, yearmonth):
+        return Attendance.objects.filter(yearmonth=yearmonth).order_by('date')
 
     def save_attendance(self, stt, end, break_time):
         self.stt_time = stt
@@ -94,4 +94,4 @@ class Attendance(models.Model):
             _, cnt = calendar.monthrange(instance.year, instance.month)
             for i in range(1, cnt+1):
                 d = date(instance.year, instance.month, i)
-                Attendance.objects.create(month=instance, date=d)
+                Attendance.objects.create(yearmonth=instance, date=d)

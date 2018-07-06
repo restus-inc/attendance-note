@@ -6,12 +6,12 @@ from django.contrib.auth.models import User
 from django.db import transaction
 
 
-def update(request, month):
+def update(request, yearmonth_id):
     if request.method == "POST" and request.POST.get("yearNumber") is not None:
         return index(request)
 
-    yearmonth = get_object_or_404(YearMonth, pk=month)
-    attendances = Attendance.get_query_set_Attendances(month=month)
+    yearmonth = get_object_or_404(YearMonth, pk=yearmonth_id)
+    attendances = Attendance.get_query_set_Attendances(yearmonth=yearmonth_id)
 
     _sec = 0
     _message = ""
@@ -46,7 +46,7 @@ def update(request, month):
     return render(request, 'attendance/update.html', {
         'items': attendances,
         'total_time': total_time,
-        'month': month,
+        'yearmonth_id': yearmonth_id,
         'wk_message': _message,
         'users': users,
         't_user': yearmonth.user.id,
@@ -68,13 +68,13 @@ def index(request):
                 _key = ym.id
                 break
 
-            return redirect('attendance:update', month=_key)
+            return redirect('attendance:update', yearmonth_id=_key)
 
         else:
             _u = User.objects.get(pk=_u)
             ym = YearMonth.objects.create(user=_u, year=_y, month=_m)
 
-            return redirect('attendance:update', month=ym.id)
+            return redirect('attendance:update', yearmonth_id=ym.id)
     else:
         users = User.objects.all()
         _u = request.user.id

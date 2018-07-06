@@ -8,6 +8,7 @@
 .DS_Store
 Thumbs.db
 
+/attendancenote/server.py
 /sassroot/*
 /.vscode/*
 
