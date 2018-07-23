@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class YearMonth(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
     year = models.IntegerField(
         validators=[
             validators.MinValueValidator(1900),
@@ -120,7 +120,7 @@ class AttendanceProcess(models.Model):
         Attendance,
         on_delete=models.CASCADE)
     number = models.SmallIntegerField()
-    project = models.ForeignKey(Project)
+    project = models.ForeignKey(Project, on_delete=models.PROTECT)
     hour = models.DecimalField(max_digits=4, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
