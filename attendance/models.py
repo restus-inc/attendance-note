@@ -126,7 +126,6 @@ class AttendanceProcess(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
-        unique_together = (('attendance', 'project'),)
         ordering = ['attendance', 'number']
 
     def __str__(self):
