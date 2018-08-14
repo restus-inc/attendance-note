@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', (evt) => {
           const registItems = dialogTable.querySelectorAll('.dialog_table_tr');
           for (const registItem of registItems) {
             if (registItem) {
-              registItem.setAttribute('name', `dt_tr_${id}`);
+              registItem.setAttribute('data-name', `dt_tr_${id}`);
 
               const projId = registItem.querySelector('.proj_id');
               if (projId) {
