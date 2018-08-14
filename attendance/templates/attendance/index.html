@@ -10,7 +10,7 @@
         <select class="user_item" name="userDrop" id="userDrop" required>
             <option value="">----</option>
             {% for user in users %}
-            <option value="{{user.id}}" {% if user.id == t_user %} selected {% endif %}>{{ user.first_name }} {{ user.last_name }}</option>
+            <option value="{{user.id}}" {% if user.id == t_user %} selected {% endif %}>{{ user.last_name }} {{ user.first_name }}</option>
             {% endfor %}
         </select>
         <label style="padding-left: 25px;">{% trans "target_month:" %}</label>
