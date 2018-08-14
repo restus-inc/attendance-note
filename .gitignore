@@ -7,7 +7,7 @@
 
 .DS_Store
 Thumbs.db
-
+master.pid
 /attendancenote/server.py
 /sassroot/*
 /.vscode/*
