@@ -23,7 +23,7 @@
         <label style="width: 100px;">{% trans "username:" %}</label>
         {% for user in users %}
             {% if user.id == t_user %} 
-            <label style="border-bottom: black;">{{ user.first_name }} {{ user.last_name }}</label>
+            <label style="border-bottom: black;">{{ user.last_name }} {{ user.first_name }}</label>
             {% endif %}
         {% endfor %}
         &nbsp;&nbsp;&nbsp;&nbsp;
