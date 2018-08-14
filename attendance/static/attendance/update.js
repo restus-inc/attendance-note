@@ -41,10 +41,9 @@ document.addEventListener('DOMContentLoaded', (evt) => {
         }
       }
     }
-    // 秒数に変換しチェック
-    lineHour *= 3600;
     const time = document.getElementById(`op_time${id}`).innerHTML.split(':');
-    const sec = toSecond(time[0], time[1], 0);
+    const sec = Math.floor(toSecond(time[0], time[1], 0) / 36) / 100;
+
     // 稼働時間と工数によってボタンイメージをを変更する。
     if (lineHour === sec) {
       registButton.setAttribute('class', 'dtil_btn_match');
