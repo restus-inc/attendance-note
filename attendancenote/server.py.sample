@@ -1,0 +1,18 @@
+import os
+import warnings
+
+from .settings import INSTALLED_APPS, LOCALE_PATHS, MIDDLEWARE, BASE_DIR  # NOQA
+
+DEBUG = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+}
+
+LANGUAGE_CODE = 'ja-jp'
+
+ALLOWED_HOSTS = ['*']
+warnings.simplefilter('error', category=RuntimeWarning)
