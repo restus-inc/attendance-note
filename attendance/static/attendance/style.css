@@ -1,0 +1,235 @@
+body {
+  margin: 0%;
+}
+
+@media not print {
+  .indexform {
+    height: 38px;
+    padding: 10px;
+    background-color: orange;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .user_item {
+    font-size: 18px;
+  }
+
+  .year_item {
+    width: 60px;
+    font-size: 18px;
+  }
+
+  .month_item {
+    width: 35px;
+    font-size: 18px;
+  }
+
+  .printform {
+    display: none;
+  }
+
+  .div_head {
+    width: 475px;
+    padding-left: 10px;
+    overflow: auto;
+  }
+
+  .div_body {
+    width: 475px;
+    height: 500px;
+    padding-left: 10px;
+    overflow: auto;
+  }
+
+  .div_foot {
+    width: 475px;
+    padding-left: 10px;
+    overflow: auto;
+  }
+
+  .td_process_detail {
+    width: 50px;
+    text-align: center;
+  }
+
+  .dtil_btn_match {
+    border-style: none;
+    background-color: blue;
+    color: white;
+    box-shadow: 2px 2px 3px 1px gray;
+  }
+
+  .dtil_btn_unmatch {
+    border-style: none;
+    background-color: blue;
+    color: red;
+    box-shadow: 2px 2px 3px 1px gray;
+  }
+
+  .dtil_process_lbl {
+    display: none;
+  }
+
+  .div_foot_btn {
+    padding-left: 10px;
+  }
+}
+
+@media print {
+  .indexform {
+    display: none;
+  }
+
+  .printform {
+    border-bottom: solid 1px;
+  }
+
+  .div_head {
+    width: 800px;
+    padding-left: 10px;
+    overflow: auto;
+  }
+
+  .div_body {
+    width: 800px;
+    padding-left: 10px;
+  }
+
+  .div_foot {
+    width: 800px;
+    padding-left: 10px;
+    overflow: auto;
+  }
+
+  .td_process_detail {
+    width: 380px;
+    text-align: left;
+  }
+
+  .dtil_btn_match {
+    display: none;
+  }
+
+  .dtil_btn_unmatch {
+    display: none;
+  }
+
+  .dtil_process_lbl {
+    width: 380px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .div_foot_btn {
+    display: none;
+  }
+}
+
+.table_head_tr {
+  background-color: blanchedalmond;
+}
+
+.t_item0 {
+  background-color: rgb(252, 210, 210);
+}
+
+.t_item6 {
+  background-color: rgb(180, 220, 255);
+}
+
+.table_foot_tr {
+  background-color: blanchedalmond;
+}
+
+.message {
+  background-color: rgb(255, 255, 221);
+  color: red;
+  font-weight: bold;
+}
+
+.tab_detail {
+  border: solid 1px black;
+  border-collapse: collapse;
+}
+
+.tab_detail tr th {
+  padding: 2px;
+  border: solid 1px black;
+}
+
+.tab_detail tr td {
+  padding: 2px;
+  border: solid 1px black;
+}
+
+.btn_entry {
+  width: 70px;
+  border-style: none;
+  background-color: blue;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 2px 2px 3px 1px gray;
+}
+
+.btn_save {
+  width: 70px;
+  height: 40px;
+  border-style: none;
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 2px 2px 3px 1px gray;
+}
+
+.dialog {
+  position: absolute;
+  width: 300px;
+  padding: 0%;
+  border: 5px rgb(100, 100, 255) solid;
+  border-radius: 10px;
+  line-height: 15px;
+  box-shadow: 5px 5px 10px black;
+}
+
+.dialog_head {
+  padding: 5px;
+  background-color: orange;
+  color: black;
+  font-weight: bold;
+}
+
+.dialog_msg {
+  padding: 5px;
+}
+
+.dialog_body {
+  margin-right: 8px;
+  margin-left: 8px;
+  padding: 10px;
+  border: solid 1px;
+  background-color: white;
+}
+
+.dialog_foot {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.proj_code {
+  width: 190px;
+}
+
+.proj_hour {
+  width: 50px;
+}
+
+.custom_dialog_button {
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+}

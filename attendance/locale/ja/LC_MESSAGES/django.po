@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-17 15:30+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\models.py:29
+msgid "attendance"
+msgstr "勤怠"
+
+#: .\models.py:30
+msgid "attendances"
+msgstr "勤怠"
+
+#: .\templates\attendance\_base.html:7
+msgid "app_title"
+msgstr "勤怠管理"
+
+#: .\templates\attendance\index.html:8 .\templates\attendance\index.html:21
+msgid "username:"
+msgstr "ユーザ："
+
+#: .\templates\attendance\index.html:15 .\templates\attendance\index.html:28
+msgid "target_month:"
+msgstr "年月："
+
+#: .\templates\attendance\index.html:18
+msgid "change"
+msgstr "表示"
+
+#: .\templates\attendance\update.html:12
+msgid "date"
+msgstr "日付"
+
+#: .\templates\attendance\update.html:13
+msgid "start time"
+msgstr "開始時間"
+
+#: .\templates\attendance\update.html:14
+msgid "end time"
+msgstr "終了時間"
+
+#: .\templates\attendance\update.html:15
+msgid "break time"
+msgstr "休憩時間"
+
+#: .\templates\attendance\update.html:16
+msgid "operation time"
+msgstr "稼働時間"
+
+#: .\templates\attendance\update.html:40
+msgid "person hours"
+msgstr "工数"
+
+#: .\templates\attendance\update.html:50 .\templates\attendance\update.html:112
+msgid "total time"
+msgstr "合計"
+
+#: .\templates\attendance\update.html:59
+msgid "save"
+msgstr "保存"
+
+#: .\templates\attendance\update.html:86
+msgid "person hours regist"
+msgstr "工数入力"
+
+#: .\templates\attendance\update.html:121
+msgid "project add"
+msgstr "追加"
+
+#: .\templates\attendance\update.html:122
+msgid "OK"
+msgstr "OK"
+
+#: .\views.py:50
+msgid "Time format is invalid."
+msgstr "時間の形式が不正です。"
+
+#: .\views.py:53
+msgid "Saved."
+msgstr "保存しました。"
