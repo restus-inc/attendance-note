@@ -45,7 +45,7 @@ def update(request, yearmonth_id):
                         )
                         i += 1
                 _sec += at.operating_time.seconds
-    except ValueError as e:
+    except ValueError:
         _message = _("Time format is invalid.")
     else:
         if request.method == "POST":

@@ -2,10 +2,11 @@ language: python
 python:
     - 3.6
 install:
-  - pip install Django==2.0.7
-  - npm install
+  - pip install pipenv
+  - pipenv install
+  - npm install 
 before_script:
   - cp attendancenote/server.py.sample attendancenote/server.py
 script:
   - python manage.py migrate
-  - python manage.py test
+  - python manage.py test attendance
