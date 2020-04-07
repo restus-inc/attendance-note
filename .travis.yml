@@ -9,5 +9,6 @@ before_script:
   - cp attendancenote/server.py.sample attendancenote/server.py
 script:
   - npm run lint
+  - flake8
   - python manage.py migrate
   - python manage.py test attendance
