@@ -4,9 +4,10 @@ python:
 install:
   - pip install pipenv
   - pipenv install
-  - npm install 
+  - npm install
 before_script:
   - cp attendancenote/server.py.sample attendancenote/server.py
 script:
+  - npm run lint
   - python manage.py migrate
   - python manage.py test attendance
