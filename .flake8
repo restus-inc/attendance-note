@@ -1,2 +1,2 @@
 [flake8]
-exclude=attendance\migrations
+exclude=attendance/migrations/*
