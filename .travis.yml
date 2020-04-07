@@ -3,10 +3,12 @@ python:
     - 3.6
 install:
   - pip install pipenv
-  - pipenv install
-  - npm install 
+  - pipenv install --dev
+  - npm install
 before_script:
   - cp attendancenote/server.py.sample attendancenote/server.py
 script:
+  - npm run lint
+  - python -m flake8
   - python manage.py migrate
   - python manage.py test attendance
